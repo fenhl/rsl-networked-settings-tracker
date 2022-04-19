@@ -119,12 +119,22 @@ main {
   flex-grow: 1;
 }
 
+.tri-toggle {
+  text-align: center;
+  flex-grow: 1;
+}
+
 .counter {
 
 }
 
+.toggle-unknown {
+  color: rgba(255, 255, 255, 0.2);
+}
+
 .toggle-off {
   color: rgba(255, 255, 255, 0.2);
+  text-decoration: line-through white 1px;
 }
 
 /* For Firebase connection */

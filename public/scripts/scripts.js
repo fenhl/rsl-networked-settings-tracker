@@ -5,7 +5,6 @@ var progdict = {
     "shops": ["Shops", "Shops 0", "Shops 1", "Shops 2", "Shops 3", "Shops 4", "Shops Rand"],
     "spiders": ["Skulltulas", "OW Skulls", "Dung. Skulls", "Skullsanity"],
     "scrubs": ["Scrubs", "Cheap Scrubs", "V. Scrubs", "Rand Scrubs"],
-    "cows": ["Cows", "No Cows", "Cowsanity"],
     "sks": ["SKs", "SK Keysy", "V. SKs", "Dung. SKs", "OW SKs", "Any Dung. SKs", "SKeysanity"],
     "bks": ["BKs", "BK Keysy", "V. BKs", "Dung. BKs", "OW BKs", "Any Dung. BKs", "BKeysanity"],
     "dot": ["DoT", "Open DoT", "Closed DoT"],
@@ -45,7 +44,7 @@ function decrement_count(elementid, delta) {
 
 function toggle(elementid) {
     var element = document.getElementById(elementid);
-    var state = element.classList.contains("toggle-off");
+    var state = element.classList.contains("toggle-unknown");
     rootRef.child("settings").child(elementid).set(state);
 }
 
@@ -61,6 +60,30 @@ function progressive_reverse(elementid) {
     var idx = progdict[elementid].indexOf(element.innerHTML);
     var newidx = idx-1 < 0 ? progdict[elementid].length-1 : idx-1;
     rootRef.child("settings").child(elementid).set(newidx);
+}
+
+function tritoggle_forward(elementid) {
+    var element = document.getElementById(elementid);
+    var idx = 2;
+    if (element.classList.contains("toggle-unknown")) {
+        idx = 0;
+    } else if (element.classList.contains("toggle-off")) {
+        idx = 1;
+    }
+    var newvalue = (idx + 1) >= 3 ? 0 : idx + 1;
+    rootRef.child("settings").child(elementid).set(newvalue);
+}
+
+function tritoggle_reverse(elementid) {
+    var element = document.getElementById(elementid);
+    var idx = 2;
+    if (element.classList.contains("toggle-unknown")) {
+        idx = 0;
+    } else if (element.classList.contains("toggle-off")) {
+        idx = 1;
+    }
+    var newvalue = (idx - 1) < 0 ? 2 : idx - 1;
+    rootRef.child("settings").child(elementid).set(newvalue);
 }
 
 function display_counts(elementid, value) {
