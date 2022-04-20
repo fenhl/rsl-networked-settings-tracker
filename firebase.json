@@ -6,6 +6,10 @@
     "public": "public",
     "rewrites": [
       {
+        "source": "/notrials/**",
+        "destination": "/rsl-no-trials-tracker.html"
+      },
+      {
         "source": "/**",
         "destination": "/rsl-s2-tracker.html"
       }
