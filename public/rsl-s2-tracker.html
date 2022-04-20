@@ -19,7 +19,7 @@
                 elemlist[i].addEventListener("click", function(e) { progressive_forward(this.id); });
                 elemlist[i].addEventListener("contextmenu", function(e) { progressive_reverse(this.id); e.preventDefault(); })
             }
-            if (cllist.contains("progressive-disable")) {
+            if (cllist.contains("progressive-disable") || cllist.contains("classless-progressive-disable")) {
                 elemlist[i].addEventListener("click", function(e) { progressive_disable_forward(this.id); });
                 elemlist[i].addEventListener("contextmenu", function(e) { progressive_disable_reverse(this.id); e.preventDefault(); })
             }
@@ -107,7 +107,7 @@
     <!-- ER Row -->
     <span class="er-box">
         <span class="er-header">
-            <div class="classless-toggle toggle-unknown er-header-uline" id="mixed">Mixed Pools</div> <div class="er-header-uline">Entrance Randomizer</div>
+            <div class="classless-progressive-disable toggle-unknown er-header-toggle" id="mixed">Mixed Pools</div> <div class="er-header-uline">Entrance Randomizer</div>
         </span>
         <span class="er-subbox">
             <span class="tri-toggle toggle-unknown" id="spawns">Spawns</span>

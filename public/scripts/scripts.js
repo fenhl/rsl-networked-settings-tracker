@@ -14,7 +14,8 @@ var progdict = {
     "poes": ["Poes", "1 Poe", "2 Poes", "3 Poes", "4 Poes", "5 Poes", "6 Poes", "7 Poes", "8 Poes", "9 Poes", "10 Poes"],
     "hintsreq": ["Hints Req.", "Free Hints", "Unknown Hints", "SoA Hints", "MoT Hints"],
     "hintdist": ["Hint Dist.", "Useless", "Balanced", "Strong", "Very Strong", "Scrubs"],
-    "dmg": ["Dmg", "Half Dmg", "Normal Dmg", "Double Dmg", "Quad Dmg", "OHKO"]
+    "dmg": ["Dmg", "Half Dmg", "Normal Dmg", "Double Dmg", "Quad Dmg", "OHKO"],
+    "mixed": ["Mixed Pools", "Mixed Pools", "Mixed Indoors", "Full Mixed Pools"],
 };
 
 var maxcounts = {

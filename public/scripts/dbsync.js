@@ -95,7 +95,7 @@ function setItemState(elementid, state) {
         if(state === false)
             setItemState(elementid, 0);
     }
-    else if(element.classList.contains("progressive-disable")) {
+    else if(element.classList.contains("progressive-disable") || element.classList.contains("classless-progressive-disable")) {
         element.innerHTML = progdict[elementid][state];
         if(state === 0 && !element.classList.contains("toggle-unknown"))
             element.classList.add("toggle-unknown");

@@ -95,12 +95,15 @@ main {
 
 .er-header {
   text-align: center;
-  /* text-decoration: underline; */
+}
+
+.er-header-toggle,
+.er-header-uline {
+  display: inline;
 }
 
 .er-header-uline {
   text-decoration: underline;
-  display: inline;
 }
 
 .er-subbox {
