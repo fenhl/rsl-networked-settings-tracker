@@ -46,6 +46,20 @@ main {
   padding: 3px 10px;
 }
 
+/* Trials row */
+.trialrow {
+  border-top: 1px solid;
+  display: flex;
+  width: auto;
+  font-size: 16pt;
+  padding: 3px;
+  margin: 0;
+  justify-content: space-between;
+}
+
+.trialrow-name {
+  padding: 0px 10px;
+}
 
 /* Sanities and Shuffle boxes */
 .centerrow {
