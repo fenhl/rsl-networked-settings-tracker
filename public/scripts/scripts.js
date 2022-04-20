@@ -1,6 +1,6 @@
 var progdict = {
     "bridgecondition": ["???", "Open", "Vanilla", "Stones", "Medallions", "Dungeons", "Spiders"],
-    "gbkcondition": ["???", "Keysy", "Vanilla", "Ganon's Castle", "Overworld", "Any Dung.", "Anywhere", "LACS: Vanilla", "Stones", "Medallions", "Dungeons", "Spiders", "Triforce"],
+    "gbkcondition": ["???", "Keysy", "Vanilla", "Ganon's Castle", "Overworld", "Any Dung.", "Anywhere", "LACS", "Stones", "Medallions", "Dungeons", "Spiders", "Triforce"],
     "songs": ["Songs", "Songs", "Dung. Songs", "Songs Anyw."],
     "shops": ["Shops", "Shops", "Shops 0", "Shops 1", "Shops 2", "Shops 3", "Shops 4", "Shops Rand"],
     "spiders": ["Skulltulas", "Skulltulas", "OW Skulls", "Dung. Skulls", "All Skulls"],
