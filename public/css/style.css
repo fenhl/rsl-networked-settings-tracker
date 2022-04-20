@@ -162,3 +162,19 @@ main {
   margin: 10px 0;
   display: block;
 }
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+    color: rgb(16, 16, 16);
+  }
+
+  .toggle-unknown {
+    color: rgba(16, 16, 16, 0.2);
+  }
+
+  .toggle-off {
+    color: rgba(16, 16, 16, 0.2);
+    text-decoration: line-through rgb(16, 16, 16) 1px;
+  }
+}
