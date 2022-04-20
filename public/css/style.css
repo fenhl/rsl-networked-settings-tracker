@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-  background-color: rgb(16, 16, 16);
+  background-color: black;
   color: white;
   -webkit-user-select: none;
   -moz-user-select: -moz-none;
@@ -139,11 +139,11 @@ main {
 }
 
 .toggle-unknown {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .toggle-off {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.3);
   text-decoration: line-through white 1px;
 }
 
@@ -165,7 +165,7 @@ main {
 
 .footer,
 .footer a {
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 a:hover {
@@ -175,20 +175,20 @@ a:hover {
 @media (prefers-color-scheme: light) {
   body {
     background-color: white;
-    color: rgb(16, 16, 16);
+    color: black;
   }
 
   .toggle-unknown {
-    color: rgba(16, 16, 16, 0.2);
+    color: rgba(0, 0, 0, 0.3);
   }
 
   .toggle-off {
-    color: rgba(16, 16, 16, 0.2);
-    text-decoration: line-through rgb(16, 16, 16) 1px;
+    color: rgba(0, 0, 0, 0.3);
+    text-decoration: line-through black 1px;
   }
 
   .footer,
   .footer a {
-    color: rgba(16, 16, 16, 0.2);
+    color: rgba(0, 0, 0, 0.3);
   }
 }
