@@ -109,19 +109,12 @@ main {
 }
 
 /* Button types */
-.toggleable {
-  flex-grow: 1;
-  text-align: center;
-}
-
-.progressive {
-  text-align: center;
-  flex-grow: 1;
-}
-
+.progressive,
+.progressive-disable,
+.toggleable,
 .tri-toggle {
-  text-align: center;
   flex-grow: 1;
+  text-align: center;
 }
 
 .counter {

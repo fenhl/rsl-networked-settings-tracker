@@ -95,6 +95,20 @@ function setItemState(elementid, state) {
         if(state === false)
             setItemState(elementid, 0);
     }
+    else if(element.classList.contains("progressive-disable")) {
+        element.innerHTML = progdict[elementid][state];
+        if(state === 0 && !element.classList.contains("toggle-unknown"))
+            element.classList.add("toggle-unknown");
+        if(state !== 0 && element.classList.contains("toggle-unknown"))
+            element.classList.remove("toggle-unknown");
+        if(state === 1 && !element.classList.contains("toggle-off"))
+            element.classList.add("toggle-off");
+        if(state !== 1 && element.classList.contains("toggle-off"))
+            element.classList.remove("toggle-off");
+        // When tracker is reset state=false is passed
+        if(state === false)
+            setItemState(elementid, 0);
+    }
     else if(element.classList.contains("counter")) {
         element.innerHTML = state;
         // Handle resets

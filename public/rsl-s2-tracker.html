@@ -19,6 +19,10 @@
                 elemlist[i].addEventListener("click", function(e) { progressive_forward(this.id); });
                 elemlist[i].addEventListener("contextmenu", function(e) { progressive_reverse(this.id); e.preventDefault(); })
             }
+            if (cllist.contains("progressive-disable")) {
+                elemlist[i].addEventListener("click", function(e) { progressive_disable_forward(this.id); });
+                elemlist[i].addEventListener("contextmenu", function(e) { progressive_disable_reverse(this.id); e.preventDefault(); })
+            }
             if (cllist.contains("toggleable") || cllist.contains("classless-toggle")) {
                 elemlist[i].addEventListener("click", function(e) { toggle(this.id); });
                 elemlist[i].addEventListener("contextmenu", function(e) { toggle(this.id); e.preventDefault(); }, false);
@@ -62,10 +66,10 @@
         <span class="centerrow-subbox">
             <span class="centerrow-subbox-header">Settings</span>
             <span class="centerrow-subbox-column">
-                <span class="progressive toggle-unknown" id="songs">Songs</span>
-                <span class="progressive toggle-unknown" id="shops">Shops</span>
-                <span class="progressive toggle-unknown" id="spiders">Skulltulas</span>
-                <span class="progressive toggle-unknown" id="scrubs">Scrubs</span>
+                <span class="progressive-disable toggle-unknown" id="songs">Songs</span>
+                <span class="progressive-disable toggle-unknown" id="shops">Shops</span>
+                <span class="progressive-disable toggle-unknown" id="spiders">Skulltulas</span>
+                <span class="progressive-disable toggle-unknown" id="scrubs">Scrubs</span>
             </span>
             <span class="centerrow-subbox-column">
                 <span class="tri-toggle toggle-unknown" id="cows">Cows</span>
@@ -79,14 +83,14 @@
             <span class="centerrow-subbox-column">
                 <span class="tri-toggle toggle-unknown" id="ks">Kokiri Sword</span>
                 <span class="tri-toggle toggle-unknown" id="ocarina">Ocarina</span>
-                <span class="toggleable toggle-unknown" id="egg">Weird Egg</span>
+                <span class="progressive-disable toggle-unknown" id="egg">Weird Egg</span>
                 <span class="tri-toggle toggle-unknown" id="card">Gerudo Card</span>
             </span>
             <span class="centerrow-subbox-column">
                 <span class="tri-toggle toggle-unknown" id="beans">Beans</span>
                 <span class="tri-toggle toggle-unknown" id="medicarp">Medi/Carp</span>
                 <span class="tri-toggle toggle-unknown" id="chus">Logical Chus</span>
-                <span class="toggleable toggle-unknown" id="csmc">CTMC</span>
+                <span class="progressive-disable toggle-unknown" id="csmc">CTMC</span>
             </span>
         </span>
     </span>
