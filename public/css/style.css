@@ -163,6 +163,15 @@ main {
   display: block;
 }
 
+.footer,
+.footer a {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 @media (prefers-color-scheme: light) {
   body {
     background-color: white;
@@ -176,5 +185,10 @@ main {
   .toggle-off {
     color: rgba(16, 16, 16, 0.2);
     text-decoration: line-through rgb(16, 16, 16) 1px;
+  }
+
+  .footer,
+  .footer a {
+    color: rgba(16, 16, 16, 0.2);
   }
 }
