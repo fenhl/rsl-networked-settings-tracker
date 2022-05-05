@@ -6,6 +6,10 @@
     "public": "public",
     "rewrites": [
       {
+        "source": "/horiz/**",
+        "destination": "/rsl-horizontal-tracker.html"
+      },
+      {
         "source": "/notrials/**",
         "destination": "/rsl-no-trials-tracker.html"
       },

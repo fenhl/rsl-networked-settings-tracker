@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>RSL Settings Tracker</title>
+<script src="/__/firebase/4.2.0/firebase-app.js"></script>
+<script src="/__/firebase/4.2.0/firebase-auth.js"></script>
+<script src="/__/firebase/4.2.0/firebase-database.js"></script>
+<script src="/__/firebase/init.js"></script>
+<script src="/scripts/scripts.js"></script>
+<script src="/scripts/dbsync.js"></script>
+<link rel="stylesheet" href="/css/style.css">
+
+<script>
+    window.onload = function() {
+        var elemlist = document.body.getElementsByTagName("*");
+        for (let i=0; i<elemlist.length; i++) {
+            cllist = elemlist[i].classList;
+            if (cllist.contains("progressive")) {
+                elemlist[i].addEventListener("click", function(e) { progressive_forward(this.id); });
+                elemlist[i].addEventListener("contextmenu", function(e) { progressive_reverse(this.id); e.preventDefault(); })
+            }
+            if (cllist.contains("progressive-disable") || cllist.contains("classless-progressive-disable")) {
+                elemlist[i].addEventListener("click", function(e) { progressive_disable_forward(this.id); });
+                elemlist[i].addEventListener("contextmenu", function(e) { progressive_disable_reverse(this.id); e.preventDefault(); })
+            }
+            if (cllist.contains("toggleable") || cllist.contains("classless-toggle")) {
+                elemlist[i].addEventListener("click", function(e) { toggle(this.id); });
+                elemlist[i].addEventListener("contextmenu", function(e) { toggle(this.id); e.preventDefault(); }, false);
+            }
+            if (cllist.contains("counter")) {
+                elemlist[i].addEventListener("click", function(e) { var delta = (e.shiftKey) ? 10 : 1; increment_count(this.id, delta); });
+                elemlist[i].addEventListener("contextmenu", function(e) { var delta = (e.shiftKey) ? 10 : 1; decrement_count(this.id, delta); e.preventDefault(); }, false);
+            }
+            if (cllist.contains("tri-toggle")) {
+                elemlist[i].addEventListener("click", function(e) { tritoggle_forward(this.id); });
+                elemlist[i].addEventListener("contextmenu", function(e) { tritoggle_reverse(this.id); e.preventDefault(); });
+            }
+        }
+        init(init_tracker);
+    };
+</script>
+
+</head>
+
+<body><main class="horizmain">
+
+<div id="notInitialized"><h2>Room not initialized</h2></div>
+
+<div class="fullframe">
+    <span class="horizrow">
+        <!-- Wincons column -->
+        <span class="horizrow-subbox">
+            <span class="centerrow-subbox-header">Bridge</span>
+            <span class="counter" id="bridgecount" style="display: none;">1</span>
+            <span class="progressive toggle-unknown" id="bridgecondition" style="padding: 0 10px;">???</span>
+            <span class="centerrow-subbox-header">Ganon BK</span>
+            <span class="counter" id="gbkcount" style="display: none;">1</span>
+            <span class="progressive toggle-unknown" id="gbkcondition" style="padding: 0 10px;">???</span>
+        </span>
+        <!-- Trials column -->
+        <span class="horizrow-subbox">
+            <span class="centerrow-subbox-header">Trials</span>
+            <span class="centerrow-subbox-column">
+                <span class="tri-toggle toggle-unknown" id="firetrial">Fire</span>
+                <span class="tri-toggle toggle-unknown" id="lighttrial">Light</span>
+                <span class="tri-toggle toggle-unknown" id="spirittrial">Spirit</span>
+            </span>
+            <span class="centerrow-subbox-column">
+                <span class="tri-toggle toggle-unknown" id="shadowtrial">Shadow</span>
+                <span class="tri-toggle toggle-unknown" id="watertrial">Water</span>
+                <span class="tri-toggle toggle-unknown" id="foresttrial">Forest</span>
+            </span>
+        </span>
+        <!-- Settings column -->
+        <span class="horizrow-subbox">
+            <span class="centerrow-subbox-header">Settings</span>
+            <span class="centerrow-subbox-column">
+                <span class="progressive-disable toggle-unknown" id="songs">Songs</span>
+                <span class="progressive-disable toggle-unknown" id="shops">Shops</span>
+                <span class="progressive-disable toggle-unknown" id="spiders">Skulltulas</span>
+                <span class="progressive-disable toggle-unknown" id="scrubs">Scrubs</span>
+            </span>
+            <span class="centerrow-subbox-column">
+                <span class="tri-toggle toggle-unknown" id="cows">Cows</span>
+                <span class="progressive toggle-unknown" id="sks">SKs</span>
+                <span class="progressive toggle-unknown" id="bks">BKs</span>
+                <span class="progressive toggle-unknown" id="dot">DoT</span>
+            </span>
+        </span>
+        <!-- Shuffle column -->
+        <span class="horizrow-subbox">
+            <span class="centerrow-subbox-header">Shuffle</span>
+            <span class="centerrow-subbox-column">
+                <span class="tri-toggle toggle-unknown" id="ks">Kokiri Sword</span>
+                <span class="tri-toggle toggle-unknown" id="ocarina">Ocarina</span>
+                <span class="progressive-disable toggle-unknown" id="egg">Weird Egg</span>
+                <span class="tri-toggle toggle-unknown" id="card">Gerudo Card</span>
+            </span>
+            <span class="centerrow-subbox-column">
+                <span class="tri-toggle toggle-unknown" id="beans">Beans</span>
+                <span class="tri-toggle toggle-unknown" id="medicarp">Medi/Carp</span>
+                <span class="tri-toggle toggle-unknown" id="chus">Logical Chus</span>
+                <span class="progressive-disable toggle-unknown" id="csmc">CAMC</span>
+            </span>
+        </span>
+        <!-- Bonus Settings column -->
+        <span class="horizrow-subbox">
+            <span class="centerrow-subbox-column">
+                <span class="progressive toggle-unknown" id="pools">Item Pool</span>
+                <span class="progressive toggle-unknown" id="hintsreq">Hints Req.</span>
+                <span class="progressive toggle-unknown" id="hintdist">Hint Dist.</span>
+                <span class="progressive toggle-unknown" id="dmg">Dmg</span>
+                <span class="tri-toggle toggle-unknown" id="alr">ALR</span>
+            </span>
+        </span>
+        <!-- ER column -->
+        <span class="horizrow-subbox">
+            <span class="centerrow-subbox-header">Entrance Randomizer</span>
+            <span class="centerrow-subbox-column">
+                <span class="tri-toggle toggle-unknown" id="indoor">Indoor</span>
+                <span class="tri-toggle toggle-unknown" id="grotto">Grotto</span>
+                <span class="tri-toggle toggle-unknown" id="dungeon">Dungeon</span>
+                <span class="tri-toggle toggle-unknown" id="ow">Overworld</span>
+            </span>
+            <span class="centerrow-subbox-column">
+                <span class="tri-toggle toggle-unknown" id="spawns">Spawns</span>
+                <span class="tri-toggle toggle-unknown" id="warps">Warps</span>
+                <span class="tri-toggle toggle-unknown" id="owls">Owls</span>
+                <span class="progressive-disable toggle-unknown" id="mixed">Mixed Pools</span>
+            </span>
+        </span>
+    </span>
+</div>
+
+<div class="room-controls">
+    <input id="password" type="text" placeholder="Password" />
+    <button id="setPasscode" onclick="set_password()">Initialize room w/passcode</button>
+    <button id="resetRoom" onclick="reset_firebase()">Reset room</button>
+    <div id="ownerControls"><button id="destroyRoom" onclick="destroy_firebase()">Destroy room</button></div>
+  </div>
+
+</main></body>
+</html>

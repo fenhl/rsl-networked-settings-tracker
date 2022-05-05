@@ -15,6 +15,10 @@ main {
   width: 500px;
 }
 
+.horizmain {
+  width: 100%;
+}
+
 /* Full container */
 .fullframe {
   width: auto;
@@ -123,6 +127,27 @@ main {
 .er-subbox {
   display: flex;
   flex-direction: row;
+}
+
+/* horizontal layout */
+.horizrow {
+  display: flex;
+  width: auto;
+  padding: 3px;
+}
+
+.horizrow-subbox {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 250px;
+  margin: -3px 0;
+  padding: 3px;
+}
+
+.horizrow-subbox + .horizrow-subbox {
+  margin-left: -1px;
+  border-left: 1px solid;
 }
 
 /* Button types */
