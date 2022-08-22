@@ -9,6 +9,7 @@ var progdict = {
     "bks": ["BKs", "BK Keysy", "V. BKs", "Dung. BKs", "OW BKs", "Any Dung. BKs", "BKs Anywhere"],
     "dot": ["DoT", "Open DoT", "Closed DoT"],
     "egg": ["Weird Egg", "Weird Egg", "Weird Egg", "Skip Zelda"],
+    "beans": ["Beans", "Beans", "Beans", "Beans Planted"],
     "csmc": ["CAMC", "CAMC", "CTMC", "CSMC"],
     "pools": ["Item Pool", "Minimal", "Scarce", "Balanced", "Plentiful"],
     "poes": ["Poes", "1 Poe", "2 Poes", "3 Poes", "4 Poes", "5 Poes", "6 Poes", "7 Poes", "8 Poes", "9 Poes", "10 Poes"],
