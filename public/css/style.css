@@ -101,6 +101,11 @@ main {
   text-align: center;
 }
 
+.centerrow-subbox-row {
+  width: 100%;
+  text-align: center;
+}
+
 /* Final row */
 .finalrow {
   display: flex;
