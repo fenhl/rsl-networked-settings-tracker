@@ -1,6 +1,6 @@
 var progdict = {
-    "bridgecondition": ["???", "Open", "Vanilla", "Stones", "Medallions", "Dungeons", "Spiders"],
-    "gbkcondition": ["???", "Keysy", "Vanilla", "Ganon's Castle", "Overworld", "Any Dung.", "Anywhere", "LACS", "Stones", "Medallions", "Dungeons", "Spiders", "Triforce"],
+    "bridgecondition": ["???", "Open", "Vanilla", "Stones", "Medallions", "Dungeons", "Spiders", "Hearts"],
+    "gbkcondition": ["???", "Keysy", "Vanilla", "Ganon's Castle", "Overworld", "Any Dung.", "Anywhere", "LACS", "Stones", "Medallions", "Dungeons", "Spiders", "Hearts", "Triforce"],
     "songs": ["Songs", "Songs", "Dung. Songs", "Songs Anyw."],
     "shops": ["Shops", "Shops", "Shops 0", "Shops 1", "Shops 2", "Shops 3", "Shops 4", "Shops Rand"],
     "spiders": ["Skulltulas", "Skulltulas", "OW Skulls", "Dung. Skulls", "All Skulls"],
@@ -18,11 +18,16 @@ var progdict = {
     "mixed": ["Mixed Pools", "Mixed Pools", "Mixed Indoors", "Full Mixed Pools"],
 };
 
+var shortprogdict = {
+    "mixed": ["Mixed Pools", "Mixed Pools", "Mixed Indoors", "Full Mixed"],
+};
+
 var maxcounts = {
     "Stones": 3,
     "Medallions": 6,
     "Dungeons": 9,
     "Spiders": 100,
+    "Hearts": 20,
     "Triforce": 100
 }
 
@@ -54,39 +59,39 @@ function toggle(elementid) {
 
 function progressive_forward(elementid) {
     var element = document.getElementById(elementid);
-    var idx = progdict[elementid].indexOf(element.innerHTML);
-    var newidx = idx+1 >= progdict[elementid].length ? 0 : idx+1;
+    var idx = (element.classList.contains("short") ? shortprogdict : progdict)[elementid].indexOf(element.innerHTML);
+    var newidx = idx+1 >= (element.classList.contains("short") ? shortprogdict : progdict)[elementid].length ? 0 : idx+1;
     rootRef.child("settings").child(elementid).set(newidx);
 }
 
 function progressive_reverse(elementid) {
     var element = document.getElementById(elementid);
-    var idx = progdict[elementid].indexOf(element.innerHTML);
-    var newidx = idx-1 < 0 ? progdict[elementid].length-1 : idx-1;
+    var idx = (element.classList.contains("short") ? shortprogdict : progdict)[elementid].indexOf(element.innerHTML);
+    var newidx = idx-1 < 0 ? (element.classList.contains("short") ? shortprogdict : progdict)[elementid].length-1 : idx-1;
     rootRef.child("settings").child(elementid).set(newidx);
 }
 
 function progressive_disable_forward(elementid) {
     var element = document.getElementById(elementid);
-    var idx = progdict[elementid].lastIndexOf(element.innerHTML);
+    var idx = (element.classList.contains("short") ? shortprogdict : progdict)[elementid].lastIndexOf(element.innerHTML);
     if (element.classList.contains("toggle-unknown")) {
         idx = 0;
     } else if (element.classList.contains("toggle-off")) {
         idx = 1;
     }
-    var newidx = idx+1 >= progdict[elementid].length ? 0 : idx+1;
+    var newidx = idx+1 >= (element.classList.contains("short") ? shortprogdict : progdict)[elementid].length ? 0 : idx+1;
     rootRef.child("settings").child(elementid).set(newidx);
 }
 
 function progressive_disable_reverse(elementid) {
     var element = document.getElementById(elementid);
-    var idx = progdict[elementid].lastIndexOf(element.innerHTML);
+    var idx = (element.classList.contains("short") ? shortprogdict : progdict)[elementid].lastIndexOf(element.innerHTML);
     if (element.classList.contains("toggle-unknown")) {
         idx = 0;
     } else if (element.classList.contains("toggle-off")) {
         idx = 1;
     }
-    var newidx = idx-1 < 0 ? progdict[elementid].length-1 : idx-1;
+    var newidx = idx-1 < 0 ? (element.classList.contains("short") ? shortprogdict : progdict)[elementid].length-1 : idx-1;
     rootRef.child("settings").child(elementid).set(newidx);
 }
 
@@ -115,7 +120,7 @@ function tritoggle_reverse(elementid) {
 }
 
 function display_counts(elementid, value) {
-    conds_with_counts = ["Stones", "Medallions", "Dungeons", "Spiders", "Triforce"]
+    conds_with_counts = ["Stones", "Medallions", "Dungeons", "Spiders", "Hearts", "Triforce"]
     if (elementid == "bridgecondition")
         document.getElementById("bridgecount").style.display = (conds_with_counts.indexOf(value) >= 0) ? "inline" : "none";
     else

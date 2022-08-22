@@ -84,19 +84,19 @@ function setItemState(elementid, state) {
                 element.classList.add("toggle-unknown");
     }
     else if(element.classList.contains("progressive")) {
-        element.innerHTML = progdict[elementid][state];
+        element.innerHTML = (element.classList.contains("short") ? shortprogdict : progdict)[elementid][state];
         if(state === 0 && !element.classList.contains("toggle-unknown"))
             element.classList.add("toggle-unknown");
         if(state !== 0 && element.classList.contains("toggle-unknown"))
             element.classList.remove("toggle-unknown");
         if(["bridgecondition", "gbkcondition"].indexOf(elementid) >= 0)
-            display_counts(elementid, progdict[elementid][state]);
+            display_counts(elementid, (element.classList.contains("short") ? shortprogdict : progdict)[elementid][state]);
         // When tracker is reset state=false is passed
         if(state === false)
             setItemState(elementid, 0);
     }
     else if(element.classList.contains("progressive-disable") || element.classList.contains("classless-progressive-disable")) {
-        element.innerHTML = progdict[elementid][state];
+        element.innerHTML = (element.classList.contains("short") ? shortprogdict : progdict)[elementid][state];
         if(state === 0 && !element.classList.contains("toggle-unknown"))
             element.classList.add("toggle-unknown");
         if(state !== 0 && element.classList.contains("toggle-unknown"))
