@@ -11,6 +11,10 @@ body {
   font-size: 14pt;
 }
 
+body.index {
+  margin: 8px;
+}
+
 main {
   width: 500px;
 }
