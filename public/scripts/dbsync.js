@@ -74,7 +74,7 @@ function init_tracker() {
 
 // Set the room password
 function set_password(presetPW = null) { // if preset password is provided, allow it to be used for auth
-    var passcode = (presetPW != null) ? presetPW : document.getElementById("passcode").value;
+    var passcode = (presetPW != null) ? presetPW : document.getElementById("password").value;
     if (presetPW) { // enter preset password into input field for clarity
         document.getElementById("password").value = presetPW;
     }
