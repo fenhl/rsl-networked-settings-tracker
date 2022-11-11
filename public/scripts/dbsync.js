@@ -76,7 +76,7 @@ function init_tracker() {
 function set_password(presetPW = null) { // if preset password is provided, allow it to be used for auth
     var passcode = (presetPW != null) ? presetPW : document.getElementById("passcode").value;
     if (presetPW) { // enter preset password into input field for clarity
-        document.getElementById("passcode").value = presetPW;
+        document.getElementById("password").value = presetPW;
     }
     if (document.getElementById('notInitialized').hidden) {
         rootRef.child('editors').child(uid).set(passcode);
