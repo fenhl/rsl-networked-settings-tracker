@@ -3,6 +3,14 @@ var uid = undefined;
 // Room ID
 var roomid = location.pathname.replace(/\/$/, "").split("/").pop().toLowerCase();
 
+// Parse url controls
+var password_override = "";
+var urlquery = location.search.replace(/\/$/, "").split("?").pop().toLowerCase().split("&");
+for (let i = 0; i < urlquery.length; i++) {
+    if (urlquery[i].includes("password=")) {
+        password_override = urlquery[i].substr(urlquery[i].indexOf("=") + 1);
+    }
+}
 var authAttempted = false;
 // Database root reference
 var rootRef = {};
@@ -44,15 +52,35 @@ function init_tracker() {
       document.getElementById('setPasscode').innerText = initialized ? 'Enter passcode' : 'Initialize room w/passcode';
       document.getElementById('ownerControls').hidden = !(initialized && (data.val() === uid));
     });
+    setTimeout(() => {
+        if (password_override === "") {
+            return;
+        }
+        console.log("Override password set, handle it");
+        if (initialized == false) { // create room
+            set_password(password_override);
+        } else { // add to editors if room already exists
+            rootRef.child('editors').child(uid).set(password_override, function(error) {
+                if (error) {
+                    console.log("Did not add to editors on page load");
+                    console.log(error);
+                } else {
+                    console.log("Added to editors successfully due password set in url");
+                }
+            });
+        }
+    }, 2500); //small timeout to catch potential firebase delay
   }
 
 // Set the room password
-function set_password() {
-    var passcode = document.getElementById("password").value;
-    if(document.getElementById('notInitialized').hidden) {
-        rootRef.child('editors').child(uid).set(passcode);
+function set_password(presetPW = null) { // if preset password is provided, allow it to be used for auth
+    var passcode = (presetPW != null) ? presetPW : document.getElementById("passcode").value;
+    if (presetPW) { // enter preset password into input field for clarity
+        document.getElementById("passcode").value = presetPW;
     }
-    else {
+    if (document.getElementById('notInitialized').hidden) {
+        rootRef.child('editors').child(uid).set(passcode);
+    } else {
         var editors = {};
         editors[uid] = true;
         rootRef.set({
