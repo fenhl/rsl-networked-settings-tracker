@@ -9,6 +9,10 @@ var urlquery = location.search.replace(/\/$/, "").split("?").pop().toLowerCase()
 for (let i = 0; i < urlquery.length; i++) {
     if (urlquery[i].includes("password=")) {
         password_override = urlquery[i].substr(urlquery[i].indexOf("=") + 1);
+    } else if (urlquery[i].toLowerCase().includes("theme=light")) {
+        document.getElementById("light-theme").removeAttribute("media");
+    } else if (urlquery[i].toLowerCase().includes("theme=dark")) {
+        document.getElementById("light-theme").remove();
     }
 }
 var authAttempted = false;
