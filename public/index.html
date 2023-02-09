@@ -3,20 +3,32 @@
   <head>
     <meta charset="utf-8" />
     <title>RSL Settings Tracker</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="/scripts/tracker_selection.js"></script>
     <link rel="stylesheet" href="/css/style.css">
     <link id="light-theme" rel="stylesheet" href="/css/light.css" media="(prefers-color-scheme: light)">
+    <link rel="stylesheet" href="/css/tracker_selection.css">
   </head>
-  <body class="index">
-    <h1>RSL Settings Tracker</h1>
-    <p style="font-size: 1.4em;">Go to <code><span id="loc"></span>/[NAME]</code> to view a tracker. If the name does not already exist, you will be able to create the tracker. If it does exist, you will be able to watch the tracker and, if the room creator gives you the passcode, update the tracker as well.</p>
-    <p>If you have been given a passcode, you can enter it. There is no indication when you've entered the correct passcode, but you'll be able to update the tracker successfully if you did.</p>
-    <p>Remember the passcode when you create a tracker. If your cookies clear, you will not be able to update the tracker without putting in the passcode.</p>
-    <p>You can also use <code><span id="loc2"></span>/notrials/[NAME]</code> if you don't have enough space for the trials info, or <code><span id="loc3"></span>/horiz/[NAME]</code> if you have a lot of horizontal space but not much vertical space. All three variants are synced if the name is the same.</p>
-    <p class="footer"><a href="https://fenhl.net/disc">disclaimer</a> • <a href="https://github.com/fenhl/rsl-networked-settings-tracker">source code</a></p>
-    <script>
-      document.getElementById('loc').innerText = location.origin;
-      document.getElementById('loc2').innerText = location.origin;
-      document.getElementById('loc3').innerText = location.origin;
-    </script>
+  <body class="bodytext">
+    <!-- Buttons and input box -->
+    <h2>Setup a Settings Tracker</h2>
+    <a id="init_url"><button id="init_button" class="notready">Initialize Tracker</button></a>
+    <br /><br />
+    Room Name: <input id="room_id" type="text"> <br /><br />
+
+    <!-- Error Messages -->
+    <div id="error_box" class="error_text">
+        <div id="error_length">Room name must be at least 5 character long.</div>
+        <div id="error_layout">Select a layout below.</div>
+    </div>
+    <br /><br />
+
+    <!-- Layout List -->
+    Select a layout.
+    <div class="buttongroup">
+        <button id="default">Default</button>
+        <button id="notrials">Hide Trials</button>
+        <button id="horiz">Horizontal</button>
+    </div>
   </body>
 </html>

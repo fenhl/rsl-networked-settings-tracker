@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: rgb(12, 12, 12);
+}
+
+.bodytext {
+    padding: 25px 25px;
+    margin: 0;
+    color: #d3d3d3;
+    font-size: 20px;
+    font-family: sans-serif;
+    list-style-type: none;
+}
+
+.buttongroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 10px;
+    padding: 10px 0;
+}
+
+.specbuttongroup_title {
+    padding: 0;
+}
+
+.specbuttongroup_title:hover {
+    padding: 2px 0 0 2px;
+    margin: 0 -2px -2px 0;
+}
+
+.error_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 10px;
+    color: #cf6679;
+}
+
+/* ==========================================
+    Format the Layout Select Buttons
+========================================== */
+.buttongroup button {
+  align-items: center;
+  background-color: #06f;
+  border: 5px solid #06f;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: left;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: left;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 300px;
+}
+
+.buttongroup button:hover {
+  background-color: #3385ff;
+  border-color: #3385ff;
+  fill: #06f;
+}
+
+.buttongroup button.selected {
+  background-color: #34385e;
+  border-color: black;
+  fill: #06f;
+}
+
+/* ==========================================
+    Format the Initialize Tracker Button
+========================================== */
+button.notready {
+    background: #cf6679;
+    border: 1px solid #cf6679;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+button.ready {
+    background: #2ea44f;
+    border: 1px solid #2ea44f;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 16px;
+    min-height: 40px;
+    outline: 0;
+    padding: 12px 14px;
+    text-align: center;
+    text-rendering: geometricprecision;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+}
+
+button.ready:hover {
+    background-color: initial;
+    background-position: 0 0;
+    color: #2ea44f;
+    opacity: .5;
+}

@@ -14,8 +14,12 @@
         "destination": "/rsl-no-trials-tracker.html"
       },
       {
-        "source": "/**",
+        "source": "/default/**",
         "destination": "/rsl-s2-tracker.html"
+      },
+      {
+        "source": "/**",
+        "destination": "/"
       }
     ],
     "ignore": [
