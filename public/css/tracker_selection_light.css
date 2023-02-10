@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(243, 243, 243);
+}
+
+.bodytext {
+    color: #2c2c2c;
+}
+
+.error_text {
+    color: #8b2235;
+}
+
+.buttongroup button {
+  color: #000;
+  fill: #fff;
+}
+
+.buttongroup button:hover {
+  background-color: #0046cc;
+  border-color: #0046cc;
+  fill: #06f;
+}
+
+.buttongroup button.selected {
+  background-color: #787ca2;
+  border-color: white;
+  fill: #06f;
+}
+
+button.notready {
+    background: #8b2235;
+    border: 1px solid #8b2235;
+    color: #000000;
+}
+
+button.ready {
+    background: #00600b;
+    border: 1px solid #00600b;
+    color: #000000;
+}
+
+button.ready:hover {
+    color: #00600b;
+}
