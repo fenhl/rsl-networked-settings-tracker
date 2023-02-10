@@ -16,10 +16,6 @@
       {
         "source": "/default/**",
         "destination": "/rsl-s2-tracker.html"
-      },
-      {
-        "source": "/**",
-        "destination": "/"
       }
     ],
     "ignore": [
