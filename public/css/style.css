@@ -131,6 +131,7 @@ main {
   display: inline;
 }
 
+.inline-header,
 .er-header-uline {
   text-decoration: underline;
 }

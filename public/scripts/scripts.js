@@ -6,7 +6,7 @@ var progdict = {
     "spiders": ["Skulltulas", "Skulltulas", "OW Skulls", "Dung. Skulls", "All Skulls"],
     "scrubs": ["Scrubs", "Scrubs", "Cheap Scrubs", "V. Scrubs", "Rand Scrubs"],
     "sks": ["SKs", "SK Keysy", "V. SKs", "Dung. SKs", "OW SKs", "Any Dung. SKs", "Regional SKs", "SKs Anywhere"],
-    "bks": ["BKs", "BK Keysy", "V. BKs", "Dung. BKs", "BKs Anywhere"],
+    "bks": ["BKs", "BK Keysy", "V. BKs", "Dung. BKs", "Regional BKs", "BKs Anywhere", "Keyring BKs"],
     "dot": ["DoT", "Open DoT", "Closed DoT"],
     "egg": ["Weird Egg", "Weird Egg", "Weird Egg", "Skip Zelda"],
     "beans": ["Beans", "Beans", "Beans", "Beans Planted"],
@@ -17,6 +17,7 @@ var progdict = {
     "hintdist": ["Hint Dist.", "Useless", "Balanced", "Strong", "Very Strong", "Scrubs"],
     "dmg": ["Dmg", "Half Dmg", "Normal Dmg", "Double Dmg", "Quad Dmg", "OHKO"],
     "mixed": ["Mixed Pools", "Mixed Pools", "Mixed Indoors", "Full Mixed Pools"],
+    "potscrates": ["Pots/Crates", "Pots/Crates", "Dung. Pots", "OW Pots", "All Pots", "Dung. Crates", "OW Crates", "All Crates", "Dung. Freestand.", "OW Freestand.", "All Freestand."],
 };
 
 var shortprogdict = {
