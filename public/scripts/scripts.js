@@ -1,5 +1,5 @@
 var progdict = {
-    "bridgecondition": ["???", "Open", "Vanilla", "Stones", "Medallions", "Dungeons", "Spiders", "Hearts"],
+    "bridgecondition": ["???", "Open", "Vanilla", "Stones", "Medallions", "Dungeons", "Spiders", "Hearts", "Entr. Rand."],
     "gbkcondition": ["???", "Keysy", "Vanilla", "Ganon's Castle", "Overworld", "Any Dung.", "Regional", "Anywhere", "LACS", "Stones", "Medallions", "Dungeons", "Spiders", "Hearts", "Triforce"],
     "songs": ["Songs", "Songs", "Dung. Songs", "Songs Anyw."],
     "shops": ["Shops", "Shops", "Shops 0", "Shops 1", "Shops 2", "Shops 3", "Shops 4", "Shops Rand"],
@@ -7,6 +7,8 @@ var progdict = {
     "scrubs": ["Scrubs", "Scrubs", "Cheap Scrubs", "V. Scrubs", "Rand Scrubs"],
     "sks": ["SKs", "SK Keysy", "V. SKs", "Dung. SKs", "OW SKs", "Any Dung. SKs", "Regional SKs", "SKs Anywhere"],
     "bks": ["BKs", "BK Keysy", "V. BKs", "Dung. BKs", "Regional BKs", "BKs Anywhere", "Keyring BKs"],
+    "tcgkeys": ["TCG Keys", "TCG Keys", "Reg. TCGKs", "TCGKs Anyw."],
+    "silverrupees": ["Silver Rupees", "SRs Removed", "V. Silver Rs", "Dung. SRs", "Regional SRs", "SRs Anywhere"],
     "dot": ["DoT", "Open DoT", "Closed DoT"],
     "egg": ["Weird Egg", "Weird Egg", "Weird Egg", "Skip Zelda"],
     "beans": ["Beans", "Beans", "Beans", "Beans Planted"],
